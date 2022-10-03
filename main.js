@@ -14,7 +14,10 @@ defaults.addEventListener('change', getMultiplier)
 custom.addEventListener('submit', getMultiplier)
 
 colors.forEach((color) => {
-color.addEventListener('click',(e) => brushColor = e.target.dataset.color)
+color.addEventListener('click', (e) => {
+     brushColor = e.target.dataset.color
+     animateIt(e.target, 'bounce')
+})
 })
 reset.addEventListener('click', resetSketch)
 
@@ -72,4 +75,15 @@ function getRandColor(){
 function resetSketch(){
     const boxes = document.querySelectorAll('.box')
     boxes.forEach(box => box.style.backgroundColor = 'white')
+    animateIt(this, 'flash')
+
+}
+
+
+function animateIt(element, value){
+    if(element.dataset.inner == 'true'){
+        element = element.parentElement
+    }
+    element.classList.add(`animate__${value}`)
+    setTimeout(() => element.classList.remove(`animate__${value}`), 1000)
 }

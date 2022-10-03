@@ -739,6 +739,13 @@ video {
   --box-size:2rem;
 }
 
+.color{
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
 h1{
   font-family: "Bree Serif", serif;
   color:#674402

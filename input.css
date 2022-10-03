@@ -6,6 +6,10 @@
 :root {
     --box-size:2rem;
 }
+.color{
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
 
 h1{
     font-family: "Bree Serif", serif;

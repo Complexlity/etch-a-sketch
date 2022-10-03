@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <script src="main.js" defer></script>
 </head>
 <body>
@@ -34,12 +38,12 @@
         </div>
        <div id="sketch-box" class="flex flex-row flex-wrap bg-white min-w-128 w-128 border-1 border-black mx-auto aspect-square"></div>
         <div class="option space-x-2 flex w-128 mx-auto justify-between mt-8">
-            <div data-color='black' class="color | flex justify-center w-1/4 h-10 bg-black text-white font-bold py-2 border-b-4 border-gray-700 rounded cursor-pointer hover:bg-gray-800 hover:border-gray-500 hover:text-gray-200">Black</div>
-            <div data-color='rainbow' class="color rainbow | w-1/4 h-10 flex justify-center text-white font-bold py-2 border-b-4 border-gray-700 rounded hover:opacity-90 hover:text-gray-200 cursor-pointer">Rainbow</div>
-            <div data-color='white' class="color | flex items-center w-1/4 bg-white font-bold border-b-4 border-gray-700 rounded hover:bg-gray-200 cursor-pointer">
-                <img data-color="white" src="eraser.jpg" class="color w-8 h-auto block" alt="">
-                <span data-color= 'white' class="color">Eraser</span></div>
-            <div class="reset | w-1/4 h-10 flex justify-center items-center w-1/4 bg-red-600 font-bold border-b-4 border-gray-700 rounded hover:bg-red-400 cursor-pointer">Reset</div>
+            <div data-color='black' class="color | animate__animated  animate__fast flex justify-center w-1/4 h-10 bg-black text-white font-bold py-2 border-b-4 border-gray-700 rounded cursor-pointer hover:bg-gray-800 hover:border-gray-500 hover:text-gray-200">Black</div>
+            <div data-color='rainbow' class="color rainbow | animate__animated animate__fast  w-1/4 h-10 flex justify-center text-white font-bold py-2 border-b-4 border-gray-700 rounded hover:opacity-90 hover:text-gray-200 cursor-pointer">Rainbow</div>
+            <div data-color='white' class="color | animate__animated  animate__fast flex items-center w-1/4 bg-white font-bold border-b-4 border-gray-700 rounded hover:bg-gray-200 cursor-pointer">
+                <img data-inner = 'true' data-color="white" src="eraser.jpg" class="color w-8 h-auto block" alt="">
+                <span data-inner = 'true' data-color= 'white' class="color">Eraser</span></div>
+            <div class="reset | animate__animated animate__fast w-1/4 h-10 flex justify-center items-center w-1/4 bg-red-600 font-bold border-b-4 border-gray-700 rounded hover:bg-red-400 cursor-pointer">Reset</div>
         </div>
     </div>
 </body>
