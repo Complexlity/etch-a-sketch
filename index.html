@@ -9,7 +9,8 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <div class="flex flex-col justify-center items-center bg-red-500 mx-auto w-full h-screen -mt-6 ">
+    <div class="flex flex-col justify-center items-center bg-blue-200 mx-auto w-full min-h-screen">
+      <h1 class="text-6xl">Etch-A-Sketch</h1>
         <div class="flex w-128 justify-center mx-auto space-x-6 my-6">
             <input
             type="range"
@@ -32,7 +33,7 @@
             </form>
         </div>
        <div id="sketch-box" class="flex flex-row flex-wrap bg-white min-w-128 w-128 border-1 border-black mx-auto aspect-square"></div>
-        <div class="option flex w-128 mx-auto justify-between mt-8">
+        <div class="option space-x-2 flex w-128 mx-auto justify-between mt-8">
             <div data-color='black' class="color | flex justify-center w-1/4 h-10 bg-black text-white font-bold py-2 border-b-4 border-gray-700 rounded cursor-pointer hover:bg-gray-800 hover:border-gray-500 hover:text-gray-200">Black</div>
             <div data-color='rainbow' class="color rainbow | w-1/4 h-10 flex justify-center text-white font-bold py-2 border-b-4 border-gray-700 rounded hover:opacity-90 hover:text-gray-200 cursor-pointer">Rainbow</div>
             <div data-color='white' class="color | flex items-center w-1/4 bg-white font-bold border-b-4 border-gray-700 rounded hover:bg-gray-200 cursor-pointer">

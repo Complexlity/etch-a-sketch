@@ -14,11 +14,9 @@ defaults.addEventListener('change', getMultiplier)
 custom.addEventListener('submit', getMultiplier)
 
 colors.forEach((color) => {
-color.addEventListener('click',(e) => {
-    brushColor = e.target.dataset.color
+color.addEventListener('click',(e) => brushColor = e.target.dataset.color)
 })
-})
-// reset.addEventListener('click', resetSketch)
+reset.addEventListener('click', resetSketch)
 
 function setBoxes(multiplier) {
     sketch.innerHTML = ''
@@ -40,11 +38,11 @@ boxes.forEach(box => {
 
 function getMultiplier(e){
     multiplierValue = e.target.value
-    if(e.target.value == 0) multiplierValue = 1
     if(e.target.name == 'form'){
-    e.preventDefault()  
-        multiplierValue = e.srcElement[0].value
+        e.preventDefault()  
+        multiplierValue = Number(e.srcElement[0].value)
     }
+    if(multiplierValue == 0) multiplierValue = 1
     setBoxes(multiplierValue)    
 
 }
@@ -69,4 +67,9 @@ function setColor(){
 
 function getRandColor(){
     return Math.floor(Math.random() * 256)
+}
+
+function resetSketch(){
+    const boxes = document.querySelectorAll('.box')
+    boxes.forEach(box => box.style.backgroundColor = 'white')
 }
