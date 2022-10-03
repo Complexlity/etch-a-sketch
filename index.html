@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="flex flex-col justify-center items-center bg-red-500 mx-auto w-full h-screen -mt-6 ">
+        <div class="flex w-128 justify-center mx-auto space-x-6 my-6">
+            <input
+            type="range"
+            name="sizing"
+            class="defaults"
+            min="0"
+            max="32"
+            step="4"
+            value="5"
+            />
+            <form class="custom | flex space-x-3" name="form">
+                <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    placeholder="Custom"
+                    class="rounded-md w-18 px-2"
+                    />
+                <button class="rounded-full bg-white px-5 py-1 hover:bg-gray-600 hover:text-white">Set</button>
+            </form>
+        </div>
+       <div id="sketch-box" class="flex flex-row flex-wrap bg-white min-w-128 w-128 border-1 border-black mx-auto aspect-square"></div>
+        <div class="option flex w-128 mx-auto justify-between mt-8">
+            <div data-color='black' class="color | w-1/4 h-10 bg-gray-900 text-white">Black</div>
+            <div data-color='rainbow' class="color | w-1/4 h-10 bg-green-600">Rainbow</div>
+            <div data-color='white' class="color | w-1/4 bg-yellow-300">Eraser</div>
+            <div class="reset | w-1/4 h-10 bg-zinc-300">Reset</div>
+        </div>
+    </div>
+</body>
+</html>
