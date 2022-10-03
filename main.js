@@ -5,6 +5,7 @@ const sketch = document.querySelector('#sketch-box')
 const defaults = document.querySelector('.defaults')
 const custom = document.querySelector('form')
 const colors = document.querySelectorAll('.color')
+console.log(colors)
 const reset = document.querySelector('.reset')
 let randomColor, newBox, redValue, blueValue,greenValue, hoverColor;
 let brushColor = 'black'
@@ -13,11 +14,11 @@ defaults.addEventListener('change', getMultiplier)
 custom.addEventListener('submit', getMultiplier)
 
 colors.forEach((color) => {
-color.addEventListener('click', (e) => brushColor = e.target.dataset.color)
+color.addEventListener('click',(e) => {
+    brushColor = e.target.dataset.color
+})
 })
 // reset.addEventListener('click', resetSketch)
-
-
 
 function setBoxes(multiplier) {
     sketch.innerHTML = ''
