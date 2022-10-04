@@ -1,5 +1,5 @@
 window.onload = () => {
-    setBoxes(4)
+    setBoxes(8)
 };
 const sketch = document.querySelector('#sketch-box')
 const defaults = document.querySelector('.defaults')
@@ -53,6 +53,7 @@ function setColor(){
     switch(brushColor){
         case 'black':
             hoverColor = 'black'
+            delete this.dataset.checked
             break
         case 'rainbow':
             if(!this.dataset.checked) {
@@ -65,7 +66,7 @@ function setColor(){
             }
             else {
                filterBrightness = this.dataset.filter 
-               filterBrightness -= 0.1
+               filterBrightness -= 0.2
                this.dataset.filter =  filterBrightness
                this.style.filter = `brightness(${filterBrightness})`
                return
@@ -74,6 +75,7 @@ function setColor(){
         case 'white':
             hoverColor = 'white'
             this.style.filter = 'none'
+            delete this.dataset.checked;
             break
         }
         
