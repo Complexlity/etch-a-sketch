@@ -66,9 +66,13 @@ function setColor(){
             }
             else {
                filterBrightness = this.dataset.filter 
-               filterBrightness -= 0.15
+               filterBrightness -= 0.1
                this.dataset.filter =  filterBrightness
                this.style.filter = `brightness(${filterBrightness})`
+               if (this.dataset.filter < 0){
+                   this.dataset.filter = 0
+                   this.style.filter = `brightness(0)`
+                }
                return
             }
             break
@@ -94,9 +98,6 @@ function resetSketch(){
         delete box.dataset.checked
     })
     animateIt(this, 'flash')
-    brushColor = 'black'
-
-
 }
 
 
