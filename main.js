@@ -5,9 +5,8 @@ const sketch = document.querySelector('#sketch-box')
 const defaults = document.querySelector('.defaults')
 const custom = document.querySelector('form')
 const colors = document.querySelectorAll('.color')
-console.log(colors)
 const reset = document.querySelector('.reset')
-let randomColor, newBox, redValue, blueValue,greenValue, hoverColor;
+let randomColor, newBox, redValue, blueValue,greenValue, hoverColor, filterBrightness;
 let brushColor = 'black'
 
 defaults.addEventListener('change', getMultiplier)
@@ -56,20 +55,33 @@ function setColor(){
             hoverColor = 'black'
             break
         case 'rainbow':
-            redValue = getRandColor()
-            blueValue = getRandColor()
-            greenValue = getRandColor()
-            hoverColor = `rgb(${redValue}, ${blueValue}, ${greenValue})`
+            if(!this.dataset.checked) {
+                this.dataset.checked = 'true'
+                this.dataset.filter = 1    
+                redValue = getRandColor(361)
+                blueValue = getRandColor(101)
+                greenValue = getRandColor(101)
+                hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`
+            }
+            else {
+               filterBrightness = this.dataset.filter 
+               filterBrightness -= 0.1
+               this.dataset.filter =  filterBrightness
+               this.style.filter = `brightness(${filterBrightness})`
+               return
+            }
             break
         case 'white':
             hoverColor = 'white'
+            this.style.filter = 'none'
             break
         }
+        
         this.style.backgroundColor = hoverColor       
     }
 
-function getRandColor(){
-    return Math.floor(Math.random() * 256)
+function getRandColor(value){
+    return Math.floor(Math.random() * value)
 }
 
 function resetSketch(){
