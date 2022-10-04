@@ -66,7 +66,7 @@ function setColor(){
             }
             else {
                filterBrightness = this.dataset.filter 
-               filterBrightness -= 0.2
+               filterBrightness -= 0.15
                this.dataset.filter =  filterBrightness
                this.style.filter = `brightness(${filterBrightness})`
                return
@@ -88,9 +88,14 @@ function getRandColor(value){
 
 function resetSketch(){
     const boxes = document.querySelectorAll('.box')
-    boxes.forEach(box => box.style.backgroundColor = 'white')
+    boxes.forEach(box => {
+        box.style.backgroundColor = 'white'
+        box.style.filter = 'none'
+        delete box.dataset.checked
+    })
     animateIt(this, 'flash')
     brushColor = 'black'
+
 
 }
 
