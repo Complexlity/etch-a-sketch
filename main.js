@@ -12,7 +12,8 @@ let randomColor,
   blueValue,
   greenValue,
   hoverColor,
-  filterBrightness;
+  filterBrightness,
+  colorChange;
 let brushColor = "black";
 
 defaults.addEventListener("change", getMultiplier);
@@ -42,6 +43,8 @@ function setBoxes(multiplier) {
   }
   const boxes = document.querySelectorAll(".box");
   boxes.forEach((box) => {
+    box.style.backgroundColor = "white";
+    box.dataset.filter = 1;
     box.addEventListener("mouseover", setColor);
   });
 }
@@ -57,39 +60,81 @@ function getMultiplier(e) {
 }
 
 function setColor() {
+  // switch (brushColor) {
+  //   case "black":
+  //     hoverColor = "black";
+  //     delete this.dataset.checked;
+  //     break;
+  //   case "rainbow":
+  //     if (!this.dataset.checked) {
+  //       this.dataset.checked = "true";
+  //       this.dataset.filter = 1;
+  //       redValue = getRandColor(361);
+  //       blueValue = getRandColor(101);
+  //       greenValue = getRandColor(101);
+  //       hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`;
+  //     } else {
+  //       filterBrightness = this.dataset.filter;
+  //       filterBrightness -= 0.2;
+  //       this.dataset.filter = filterBrightness;
+  //       this.style.filter = `brightness(${filterBrightness})`;
+  //       if (this.dataset.filter < 0) {
+  //         this.dataset.filter = 0;
+  //         this.style.filter = `brightness(0)`;
+  //       }
+  //       return;
+  //     }
+  //     break;
+  //   case "white":
+  //     hoverColor = "white";
+  //     this.style.filter = "none";
+  //     delete this.dataset.checked;
+  //     break;
+  // }
   switch (brushColor) {
     case "black":
       hoverColor = "black";
+      this.style.filter = "none";
+      this.dataset.filter = 1;
       delete this.dataset.checked;
+      colorChange = true;
       break;
     case "rainbow":
-      if (!this.dataset.checked) {
-        this.dataset.checked = "true";
-        this.dataset.filter = 1;
-        redValue = getRandColor(361);
-        blueValue = getRandColor(101);
-        greenValue = getRandColor(101);
-        hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`;
-      } else {
-        filterBrightness = this.dataset.filter;
-        filterBrightness -= 0.2;
-        this.dataset.filter = filterBrightness;
-        this.style.filter = `brightness(${filterBrightness})`;
-        if (this.dataset.filter < 0) {
-          this.dataset.filter = 0;
-          this.style.filter = `brightness(0)`;
-        }
-        return;
-      }
+      this.style.filter = "none";
+      this.dataset.filter = 1;
+      this;
+      this.dataset.checked = "true";
+      redValue = getRandColor(361);
+      blueValue = getRandColor(101);
+      greenValue = getRandColor(101);
+      hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`;
+      colorChange = true;
       break;
     case "white":
       hoverColor = "white";
+      this.dataset.filter = 1;
       this.style.filter = "none";
       delete this.dataset.checked;
+      colorChange = true;
+      break;
+    case "lighten":
+      console.log("I am lightened now");
+      colorChange = false;
+      break;
+    case "darken":
+      filterBrightness = Number(this.dataset.filter);
+      filterBrightness -= 0.2;
+      this.dataset.filter = filterBrightness;
+      this.style.filter = `brightness(${filterBrightness})`;
+      if (this.dataset.filter < 0) {
+        this.dataset.filter = 0;
+        this.style.filter = `brightness(0)`;
+      }
+      colorChange = false;
       break;
   }
 
-  this.style.backgroundColor = hoverColor;
+  if (colorChange) this.style.backgroundColor = hoverColor;
 }
 
 function getRandColor(value) {
