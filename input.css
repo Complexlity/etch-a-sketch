@@ -4,38 +4,46 @@
 
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 :root {
-    --box-size:2rem;
+  --box-size: 2rem;
+  --sketch-size: 80%;
 }
-.color{
-    animation-duration: 1s;
-    animation-delay: 0s;
+.color {
+  animation-duration: 1s;
+  animation-delay: 0s;
 }
 
-h1{
-    font-family: "Bree Serif", serif;
-    color:#674402
+h1 {
+  font-family: "Bree Serif", serif;
+  color: #674402;
 }
 
 .box {
-    height:var(--box-size);
-    width:var(--box-size);
-    border:1px solid hsl(262, 97%, 14%);
-    border-collapse: collapse;   
+  height: var(--box-size);
+  width: var(--box-size);
+  border: 0.2px solid hsl(72, 71%, 30%);
+  border-collapse: collapse;
 }
 
-.rainbow{
-background: linear-gradient(
-        90deg,
-        rgba(255, 0, 0, 1) 0%,
-        rgba(255, 154, 0, 1) 10%,
-        rgba(208, 222, 33, 1) 20%,
-        rgba(79, 220, 74, 1) 30%,
-        rgba(63, 218, 216, 1) 40%,
-        rgba(47, 201, 226, 1) 50%,
-        rgba(28, 127, 238, 1) 60%,
-        rgba(95, 21, 242, 1) 70%,
-        rgba(186, 12, 248, 1) 80%,
-        rgba(251, 7, 217, 1) 90%,
-        rgba(255, 0, 0, 1) 100%
-    );
+.rainbow {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}
+
+#sketch-box {
+  width: var(--sketch-size);
+  height: var(--sketch-size);
+  max-width: 32rem;
+  max-height: 32rem;
 }
