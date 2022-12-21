@@ -60,37 +60,6 @@ function getMultiplier(e) {
 }
 
 function setColor() {
-  // switch (brushColor) {
-  //   case "black":
-  //     hoverColor = "black";
-  //     delete this.dataset.checked;
-  //     break;
-  //   case "rainbow":
-  //     if (!this.dataset.checked) {
-  //       this.dataset.checked = "true";
-  //       this.dataset.filter = 1;
-  //       redValue = getRandColor(361);
-  //       blueValue = getRandColor(101);
-  //       greenValue = getRandColor(101);
-  //       hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`;
-  //     } else {
-  //       filterBrightness = this.dataset.filter;
-  //       filterBrightness -= 0.2;
-  //       this.dataset.filter = filterBrightness;
-  //       this.style.filter = `brightness(${filterBrightness})`;
-  //       if (this.dataset.filter < 0) {
-  //         this.dataset.filter = 0;
-  //         this.style.filter = `brightness(0)`;
-  //       }
-  //       return;
-  //     }
-  //     break;
-  //   case "white":
-  //     hoverColor = "white";
-  //     this.style.filter = "none";
-  //     delete this.dataset.checked;
-  //     break;
-  // }
   switch (brushColor) {
     case "black":
       hoverColor = "black";
