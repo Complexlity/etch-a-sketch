@@ -629,6 +629,10 @@ video {
   width: 6ch;
 }
 
+.w-\[10ch\] {
+  width: 10ch;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
