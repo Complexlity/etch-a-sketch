@@ -118,7 +118,14 @@ function setColor() {
       colorChange = true;
       break;
     case "lighten":
-      console.log("I am lightened now");
+      filterBrightness = Number(this.dataset.filter);
+      filterBrightness += 0.2;
+      this.dataset.filter = filterBrightness;
+      this.style.filter = `brightness(${filterBrightness})`;
+      if (this.dataset.filter > 2) {
+        this.dataset.filter = 2;
+        this.style.filter = `brightness(2)`;
+      }
       colorChange = false;
       break;
     case "darken":
