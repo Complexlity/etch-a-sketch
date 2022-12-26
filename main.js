@@ -29,7 +29,6 @@ reset.addEventListener("click", resetSketch);
 
 function setBoxes(multiplier) {
   let boxWidth = sketch.clientWidth / 16;
-  console.log(boxWidth);
   document.documentElement.style.setProperty("--sketch-size", `${boxWidth}rem`);
   sketch.innerHTML = "";
   let size = boxWidth / multiplier;
