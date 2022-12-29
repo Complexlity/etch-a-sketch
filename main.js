@@ -124,7 +124,7 @@ function resetSketch() {
     box.style.filter = "none";
     setTimeout(() => {
       box.style.transition = `none`;
-    }, 1000);
+    }, 1500);
     delete box.dataset.checked;
   });
 }
