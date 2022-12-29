@@ -61,11 +61,10 @@ function getMultiplier(e) {
 function setColor() {
   switch (brushColor) {
     case "black":
-      hoverColor = "black";
-      this.style.filter = "none";
-      this.dataset.filter = 1;
+      this.dataset.filter = 0;
+      this.style.filter = `brightness(0)`;
       delete this.dataset.checked;
-      colorChange = true;
+      colorChange = false;
       break;
     case "rainbow":
       this.style.filter = "none";
@@ -118,12 +117,12 @@ function getRandColor(value) {
 
 function resetSketch() {
   const boxes = document.querySelectorAll(".box");
+  animateIt(this, "flash");
   boxes.forEach((box) => {
     box.style.backgroundColor = "white";
     box.style.filter = "none";
     delete box.dataset.checked;
   });
-  animateIt(this, "flash");
 }
 
 function animateIt(element, value) {
