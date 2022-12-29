@@ -119,12 +119,12 @@ function resetSketch() {
   const boxes = document.querySelectorAll(".box");
   animateIt(this, "flash");
   boxes.forEach((box) => {
-    box.style.transition = `background-color 1.5s ease-in-out`;
+    box.style.transition = `background-color 1.8s ease-in-out, filter 1.8s ease-in-out`;
     box.style.backgroundColor = "white";
+    box.style.filter = "none";
     setTimeout(() => {
       box.style.transition = `none`;
     }, 1000);
-    box.style.filter = "none";
     delete box.dataset.checked;
   });
 }
