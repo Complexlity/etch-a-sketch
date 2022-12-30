@@ -61,10 +61,11 @@ function getMultiplier(e) {
 function setColor() {
   switch (brushColor) {
     case "black":
+      hoverColor = "white";
       this.dataset.filter = 0;
       this.style.filter = `brightness(0)`;
       delete this.dataset.checked;
-      colorChange = false;
+      colorChange = true;
       break;
     case "rainbow":
       this.style.filter = "none";
