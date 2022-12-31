@@ -78,3 +78,15 @@ img.color {
     margin-right: 0;
   }
 }
+
+/* .defaults {
+  position: relative;
+} */
+
+/* .defaults::before {
+  content: "4 x 4";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+} */

@@ -22,15 +22,22 @@
         class="flex w-full justify-center max-w-128 mx-auto my-6 gap-2 sm:gap-8"
       >
         <div class="flex-1 flex justify-end">
-          <input
-            type="range"
-            name="sizing"
-            class="defaults"
-            min="0"
-            max="32"
-            step="4"
-            value="8"
-          />
+          <div class="relative flex items-center">
+            <span
+              class="font-semibold text-[1.1rem] absolute top-[-50%] left-[50%] translate-x-[-50%]"
+            >
+              4 x 4</span
+            >
+            <input
+              type="range"
+              name="sizing"
+              class="defaults"
+              min="0"
+              max="32"
+              step="4"
+              value="8"
+            />
+          </div>
         </div>
         <form class="custom | flex flex-1 space-x-3" name="form">
           <input

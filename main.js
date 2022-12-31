@@ -29,6 +29,8 @@ reset.addEventListener("click", resetSketch);
 
 function setBoxes(multiplier) {
   document.documentElement.style.setProperty("--box-number", `${multiplier}`);
+  let text = defaults.parentElement.querySelector("span");
+  text.textContent = `${multiplier} x ${multiplier}`;
   sketch.innerHTML = "";
   for (let j = 0; j < multiplier; j++) {
     for (let i = 0; i < multiplier; i++) {
