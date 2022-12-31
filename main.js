@@ -55,6 +55,7 @@ function getMultiplier(e) {
     multiplierValue = Number(e.srcElement[0].value);
   }
   if (multiplierValue == 0) multiplierValue = 1;
+  else if (multiplierValue > 32) defaults.value = 32;
   setBoxes(multiplierValue);
   customInput.value = "";
 }
