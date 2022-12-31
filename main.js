@@ -4,6 +4,7 @@ window.onload = () => {
 const sketch = document.querySelector("#sketch-box");
 const defaults = document.querySelector(".defaults");
 const custom = document.querySelector("form");
+const customInput = custom.querySelector("input");
 const colors = document.querySelectorAll(".color");
 const reset = document.querySelector(".reset");
 let randomColor,
@@ -55,6 +56,7 @@ function getMultiplier(e) {
   }
   if (multiplierValue == 0) multiplierValue = 1;
   setBoxes(multiplierValue);
+  customInput.value = "";
 }
 
 function setColor() {
