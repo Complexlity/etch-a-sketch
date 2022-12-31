@@ -777,8 +777,7 @@ video {
 }
 
 :root {
-  --box-size: 2rem;
-  --sketch-size: 80%;
+  --box-number: 8;
 }
 
 .color {
@@ -794,8 +793,8 @@ h1 {
 }
 
 .box {
-  height: var(--box-size);
-  width: var(--box-size);
+  /* height: var(--box-size);
+  width: var(--box-size); */
   border: 0.1px solid hsl(72, 71%, 30%);
   border-collapse: collapse;
 }
@@ -818,10 +817,13 @@ h1 {
 }
 
 #sketch-box {
-  width: var(--sketch-size);
-  height: var(--sketch-size);
   max-width: 32rem;
   max-height: 32rem;
+  display: grid;
+  grid-template-columns: repeat(var(--box-number), 1fr);
+  grid-template-rows: repeat(var(--box-number), 1fr);
+  width: 80%;
+  aspect-ratio: 1/1;
 }
 
 .option {

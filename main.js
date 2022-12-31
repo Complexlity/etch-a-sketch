@@ -28,11 +28,8 @@ colors.forEach((color) => {
 reset.addEventListener("click", resetSketch);
 
 function setBoxes(multiplier) {
-  let boxWidth = sketch.clientWidth / 16;
-  document.documentElement.style.setProperty("--sketch-size", `${boxWidth}rem`);
+  document.documentElement.style.setProperty("--box-number", `${multiplier}`);
   sketch.innerHTML = "";
-  let size = boxWidth / multiplier;
-  document.documentElement.style.setProperty("--box-size", `${size}rem`);
   for (let j = 0; j < multiplier; j++) {
     for (let i = 0; i < multiplier; i++) {
       newBox = document.createElement("div");
