@@ -1,12 +1,17 @@
+// Creates default box size
 window.onload = () => {
   setBoxes(8);
 };
+
+// Gets the sketch box as well as all the settings from the dom
 const sketch = document.querySelector("#sketch-box");
-const defaults = document.querySelector(".defaults");
+const meter = document.querySelector(".meter");
 const custom = document.querySelector("form");
 const customInput = custom.querySelector("input");
 const colors = document.querySelectorAll(".color");
 const reset = document.querySelector(".reset");
+
+// Creates all universally used variables
 let randomColor,
   newBox,
   redValue,
@@ -15,24 +20,33 @@ let randomColor,
   hoverColor,
   filterBrightness,
   colorChange;
+
+// Makes the default setting black. Other value would be white, rainbow, lighten and darken
 let brushColor = "black";
 
-defaults.addEventListener("change", getMultiplier);
+// Changes the size of the box when the meter is changed as well as when custom value is entered and submitted
+meter.addEventListener("change", getMultiplier);
 custom.addEventListener("submit", getMultiplier);
 
+// Adds bounce animation to the settings using animate.css
 colors.forEach((color) => {
   color.addEventListener("click", (e) => {
     brushColor = e.target.dataset.color;
     animateIt(e.target, "bounce");
   });
 });
+
+// Fires function to take sketch box to default
 reset.addEventListener("click", resetSketch);
 
+// This function takes in a multiplier and creates a square number of boxes in the sketch box
 function setBoxes(multiplier) {
   document.documentElement.style.setProperty("--box-number", `${multiplier}`);
-  let text = defaults.parentElement.querySelector("span");
-  text.textContent = `${multiplier} x ${multiplier}`;
+  let text = meter.parentElement.querySelector("span");
+  text.textContent = `${multiplier} x ${multiplier}`; // Shows the number of boxes per row on the page
   sketch.innerHTML = "";
+
+  // Loop to creae and apppend the boxes
   for (let j = 0; j < multiplier; j++) {
     for (let i = 0; i < multiplier; i++) {
       newBox = document.createElement("div");
@@ -40,6 +54,8 @@ function setBoxes(multiplier) {
       sketch.append(newBox);
     }
   }
+
+  // Adds the listenener to show color when each box is hovered
   const boxes = document.querySelectorAll(".box");
   boxes.forEach((box) => {
     box.style.backgroundColor = "white";
@@ -48,18 +64,23 @@ function setBoxes(multiplier) {
   });
 }
 
+// Collects the input for the meter or form and changes the number of boxews
 function getMultiplier(e) {
   multiplierValue = e.target.value;
+  // Checks the type to be form and removes the default reload on form submit
   if (e.target.name == "form") {
     e.preventDefault();
     multiplierValue = Number(e.srcElement[0].value);
   }
-  if (multiplierValue == 0) multiplierValue = 1;
-  else if (multiplierValue > 32) defaults.value = 32;
-  setBoxes(multiplierValue);
+
+  if (multiplierValue == 0)
+    multiplierValue = 1; // Ensures there is at least one box on the screen
+  else if (multiplierValue > 32) meter.value = 32; // updates the value of the meter element
+  setBoxes(multiplierValue); // Updates the boxes number
   customInput.value = "";
 }
 
+// This function changes the box color depending on the current state of the brush color (default is black as stated above)
 function setColor() {
   switch (brushColor) {
     case "black":
@@ -74,10 +95,11 @@ function setColor() {
       this.dataset.filter = 1;
       this;
       this.dataset.checked = "true";
-      redValue = getRandColor(361);
-      blueValue = getRandColor(101);
-      greenValue = getRandColor(101);
-      hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`;
+      redValue = getRandColor();
+      blueValue = getRandColor();
+      greenValue = getRandColor();
+      // hoverColor = `(${redValue}, ${blueValue}%, ${greenValue}%)`;
+      hoverColor = `rgb(${redValue},${blueValue},${greenValue})`;
       colorChange = true;
       break;
     case "white":
@@ -111,13 +133,16 @@ function setColor() {
       break;
   }
 
+  // Does not fire if the lighten or darken setting is used
   if (colorChange) this.style.backgroundColor = hoverColor;
 }
 
-function getRandColor(value) {
-  return Math.floor(Math.random() * value);
+// This function gets the random rgb value
+function getRandColor() {
+  return Math.floor(Math.random() * 256);
 }
 
+// Loops to remove all box color
 function resetSketch() {
   const boxes = document.querySelectorAll(".box");
   animateIt(this, "flash");
@@ -125,6 +150,7 @@ function resetSketch() {
     box.style.transition = `background-color 1.8s ease-in-out, filter 1.8s ease-in-out`;
     box.style.backgroundColor = "white";
     box.style.filter = "none";
+    this.dataset.filter = 1;
     setTimeout(() => {
       box.style.transition = `none`;
     }, 1500);
