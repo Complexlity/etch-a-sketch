@@ -158,7 +158,9 @@ function resetSketch() {
   });
 }
 
+// This function adds animation to the element using the animate.css package
 function animateIt(element, value) {
+  // Checker specifically for the eraser setting (if the eraser is clicked rather than the parent)
   if (element.dataset.inner == "true") {
     element = element.parentElement;
   }
