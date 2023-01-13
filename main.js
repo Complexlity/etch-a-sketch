@@ -98,7 +98,6 @@ function setColor() {
       redValue = getRandColor();
       blueValue = getRandColor();
       greenValue = getRandColor();
-      // hoverColor = `(${redValue}, ${blueValue}%, ${greenValue}%)`;
       hoverColor = `rgb(${redValue},${blueValue},${greenValue})`;
       colorChange = true;
       break;
