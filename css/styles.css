@@ -822,8 +822,6 @@ h1 {
 }
 
 .box {
-  /* height: var(--box-size);
-  width: var(--box-size); */
   border: 0.1px solid hsl(72, 71%, 30%);
   border-collapse: collapse;
 }
@@ -884,18 +882,6 @@ img.color {
     margin-right: 0;
   }
 }
-
-/* .defaults {
-  position: relative;
-} */
-
-/* .defaults::before {
-  content: "4 x 4";
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-} */
 
 .hover\:border-gray-500:hover {
   --tw-border-opacity: 1;

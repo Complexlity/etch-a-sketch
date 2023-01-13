@@ -74,10 +74,10 @@ function setColor() {
       this.dataset.filter = 1;
       this;
       this.dataset.checked = "true";
-      redValue = getRandColor(361);
-      blueValue = getRandColor(101);
-      greenValue = getRandColor(101);
-      hoverColor = `hsl(${redValue}, ${blueValue}%, ${greenValue}%)`;
+      redValue = getRandColor();
+      blueValue = getRandColor();
+      greenValue = getRandColor();
+      hoverColor = `rgb(${redValue},${blueValue},${greenValue})`;
       colorChange = true;
       break;
     case "white":
@@ -114,8 +114,8 @@ function setColor() {
   if (colorChange) this.style.backgroundColor = hoverColor;
 }
 
-function getRandColor(value) {
-  return Math.floor(Math.random() * value);
+function getRandColor() {
+  return Math.floor(Math.random() * 256);
 }
 
 function resetSketch() {
